@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="center_horizontal|center_vertical"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="vm"
+            type="com.example.android_architecture.vm.ViewModel" />
+    </data>
 
-    <TextView
-        android:textAlignment="center"
-        android:id="@+id/text_view"
-        android:layout_height="100dp"
-        android:textSize="20sp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:text="click" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@{vm._text}"
+            android:onClick="@{()->vm.updateText()}"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+    </LinearLayout>
+</layout>
 
